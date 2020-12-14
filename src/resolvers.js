@@ -1,5 +1,5 @@
 const DB = process.env.DB_DATABASE;
-// const { MongoClient, Logger, ObjectId } = require('mongodb');
+const { MongoClient, Logger, ObjectId } = require('mongodb');
 // const url = `mongodb+srv://${process.env.DB_USERNAME}:${process.env.DB_PASSWORD}@${process.env.DB_HOST}`;
 // const client = new MongoClient(url, { useNewUrlParser: true, useUnifiedTopology: true });
 // const connection = client.connect();
@@ -8,12 +8,12 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 var collections = ['users']
-connection.then(async (db) => {
-	const exist = await db.db(DB).listCollections().toArray();
-	var array = [];
-	exist.forEach(e=>array.push(e['name']))
-	collections.forEach(c=>!array.includes(c) && db.db(DB).createCollection(c)) 
-});
+// connection.then(async (db) => {
+// 	const exist = await db.db(DB).listCollections().toArray();
+// 	var array = [];
+// 	exist.forEach(e=>array.push(e['name']))
+// 	collections.forEach(c=>!array.includes(c) && db.db(DB).createCollection(c)) 
+// });
 
 module.exports = {
 	Query: {
