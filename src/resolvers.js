@@ -21,7 +21,7 @@ module.exports = {
 			if (input._id) {input._id = new ObjectId(input._id)};
 			return new Promise((resolve) => {
 				connection.then((db) => {
-					db.db(DB).collection('users').findOne(
+					db.db(DB).collection('test-users').findOne(
 						Object.assign(input, {
 							is_deleted:false
 						}), (err, res) => {
@@ -84,7 +84,7 @@ module.exports = {
 			if(input.password){input.password = await bcrypt.hash(input.password, 10)};
 			return new Promise((resolve) => {
 				connection.then((db) => {
-					db.db(DB).collection('users').insertOne(
+					db.db(DB).collection('test-users').insertOne(
 						Object.assign(input, {
 							created_at: new Date(),
 							updated_at: new Date(),
