@@ -1,3 +1,16 @@
+[[headers]]
+  for = "/*"
+    [headers.values]
+    Access-Control-Allow-Origin = "*"
+
 [build]
   command = "npm run bundle"
   functions = "functions"
+
+[[redirects]]
+  from = "/"
+  to = "/.netlify/functions/index"
+  status = 200
+
+[[plugins]]
+  package = "@netlify/plugin-local-install-core"

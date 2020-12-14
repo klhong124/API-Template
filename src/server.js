@@ -9,7 +9,17 @@ function createLambdaServer() {
 		typeDefs,
 		resolvers,
 		introspection: true,
-		playground: false
+		playground: false,
+		debug:true,
+		apollo:{
+			key:process.env.APOLLO_KEY,
+			graphVariant:process.APOLLO_GRAPH_VARIANT
+
+		},
+		cors: {
+			origin: "*",
+			credentials: true
+		},
 	});
 }
 
@@ -18,7 +28,9 @@ function createLocalServer() {
 		typeDefs,
 		resolvers,
 		introspection: true,
-		playground: true
+		playground: {
+			endpoint: "/graphql"
+		},
 	});
 }
 
